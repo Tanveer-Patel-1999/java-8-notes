@@ -1,0 +1,68 @@
+Numeric Stream
+==============
+1 : Numeric Stream belonges to " primitive type refernce".
+2 : 
+
+Q : how many types of numeric Stream?
+--> they are three types
+1 : IntStream 		-- 	it belonges to primitive int
+2 : LongStream 		-- 	it belonges to primitive long
+3 : Double Stream 	-- 	it belonges to primitive double
+
+package org.example.java8.numeric;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.BinaryOperator;
+import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
+
+public class NumericStream {
+/*
+        Numeric Stream
+
+                1: IntStream()
+                2: IntStream() have two method range() and rangeClosed().
+                3: rangeClosed() method accept two parameters " start and end ".
+                4: rangeClosed() method are used the last parameter also.[ used closed element ]
+                5: range() method accept two parameters " start and end ".
+                6: range() method are not used the last parameter.[ used closed element - 1 ]
+
+ */
+    static BinaryOperator<Integer> sum = (a , b) -> a+b;
+    static int calculateSum(List<Integer> list){
+        return list.stream().reduce(0,sum);
+    }
+
+    static int calculateSumWithStream(IntStream list){
+            return list.sum();
+    }
+
+    public static void main(String[] args) {
+        List<Integer> number = Arrays.asList(1,2,3,4,5,6,7,8,9);
+        System.out.println("Sum =" +calculateSum(number));
+
+        IntStream intStream = IntStream.rangeClosed(1,9);
+        System.out.println("sum using stream = "+ calculateSumWithStream(intStream));
+
+//    difference b/w rangeClosed() and range()
+
+        IntStream intStream1 = IntStream.rangeClosed(1,5);
+        IntStream intStream2 = IntStream.range(1,5);
+        intStream1.forEach(System.out::println);
+        System.out.println("+++++++++++++++++++++++");
+        intStream2.forEach(System.out::println);
+
+        LongStream longStream = LongStream.rangeClosed(1,15);
+        longStream .forEach(System.out::println);
+        System.out.println("+++++++++++++++++++++++");
+        LongStream longStream1 = LongStream.range(1,15);
+        longStream1.forEach(System.out::println);
+
+//        convert long to double
+        DoubleStream doubleStream3 = LongStream.range(1,15).asDoubleStream();
+        doubleStream3.forEach(System.out::println);
+
+    }
+}

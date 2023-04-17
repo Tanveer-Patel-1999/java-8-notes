@@ -1,0 +1,369 @@
+java-8 content
+==============
+--> lambdas expression
+--> Stream and parallel stream
+--> Optional
+--> Time API chnages
+
+Q :list the new feature introduced in java 8?
+	1 : Lambda Expressions
+	2 : Method References
+	3 : Optional Class
+	4 : Functional Interface
+	5 : Default methods
+	6 : Stream API
+	7 : Date API
+
+Q1 : why we need java-8?
+--> Improving application performnace.
+--> lambdas expression the stream api
+--> new Optional type give developers significant flexibility when dealing with " null value ".
+--> time api chnages
+
+Q2  : significant of java-8?
+--> it reduce the code
+
+Q3 : what is a functional interface?
+--> The functional interface which contain " only one abstract method".
+--> but the functional interface can have mutiple number of default and static method .
+--> fuctional in is anotated with " @FunctionalInterface ".
+Example :
+	1: Runnable Interface 	-- 	only one run() method
+	2: Callable Interface 	-- 	only one call() method
+	3: Comparable Interface -- 	only one compareTo() method
+	4: Comparator Interface -- 	only one compare() method
+	
+@FunctionalInterface
+public interface MyFunctionalInterface {
+//  abstract() methode
+	void show();
+	
+//  default() methode
+    default String m1()
+    {
+        return "this my default() methode";
+    }
+
+//  static() methode
+    static Boolean m2()
+    {
+        return true;
+    }
+}
+	
+Q4 : Define lambda and synatx?
+--> lambda expression is same as function / method.
+--> lambda expression is also called as  " Anonymous fuction"  so no need to have a name.
+--> lambda does not belong to any class or an object.
+--> lambda expression is only applicable for " functional interface".
+--> synatx
+		() -> {};
+		
+	() --: lambda input parameters
+	-> --: Arrow [ indicate lambda expression ]
+	{} --: lambda body
+	
+Q5 : what is mean by anonymous function / method?
+--> the function does not have " name and modifier " is called as anonymous fuction.
+example : 
+			lambda expression : () -> { };
+
+Q5 : differnce b/w lambda and method?
+--->
+	1 : lambda
+	---------
+	1: lambda does not belongs to " any class or an object".
+	2: lambda is an anonymous function.[ doest not have name]
+	3: lambda does not have " modifier".
+	
+	2: method
+	---------
+	1: method is always belongs to " class or an object".
+	2: method alway have a " name".
+	3: method have "modifier".
+		
+	
+Q6 : when we used a curley  " { } " bracket in lambda and not ?
+1 : if you have only one line of code that time you can not used a " {}" bracket.
+2 : if u have mutiple lines of code in the lambda expression then u must used " { } " brackets.
+	
+Q7 : used of Runnable interface with lambda expression?
+--> Runnable interface is a " functional interface ".
+--> Runnable interface have only one abstract method that is " run() method ".
+
+example :
+		package org.example.java8.lambda;
+
+public class RunnableLambda {
+    public static void main(String[] args) {
+//        before
+        Runnable t1 = new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Thread 1...");
+            }
+        };
+        new Thread(t1).start();
+
+//        After
+        Runnable t2 = () -> System.out.println("thread t2..");
+        new Thread(t2).start();
+
+
+        Runnable t3 = () -> {
+            System.out.println("Thread t3 .....");
+            System.out.println("Thread t3.1.....");
+        };
+        new Thread(t3).start();
+
+//        Before  java-8
+
+//      creating a runnable  direct inside the thread
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("thread 4 ...");
+            }
+        }).start();
+
+
+//        After java-8
+        new Thread(()-> System.out.println("thraed 5 ...")).start();
+
+        new Thread(()->{
+            System.out.println("thread 6...");
+            System.out.println("thraed 7 ...");
+        }).start();
+
+    }
+}
+
+
+Q8 : used of Comparator interface with lambda expression?
+--> Comparator interface is a " functional interface ".
+--> Comparator interface have only one abstract method that is " compare method ".
+--> it used compareTo() to check the equality
+	1: if x and y are equal then Result 	: 0
+	2: if x is greater then y then Result 	: 1
+	3: if x is smaller then y then Result	:-1
+	
+Example : 
+
+public class ComparatorLambda {
+    public static void main(String[] args) {
+
+//        before java 8
+        Comparator<Integer> comparator = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o1.compareTo(o2);
+            }
+        };
+        System.out.println("comparator 1 : "+ comparator.compare(1,1)); // 0
+
+//      After java 8
+        Comparator<Integer> comparator1 = (Integer x, Integer y) -> x.compareTo(y);
+        System.out.println("comparator 2 : "+comparator1.compare(1,2)); //-1
+
+//      optimizing : input parameter does not required data type lambda expression know which types of data is
+        Comparator<Integer> comparator2 = ( x,  y) -> x.compareTo(y);
+        System.out.println("comparator 3 : "+comparator2.compare(10,2)); //+1
+
+//        optmizing code : lambda is replace with method refernce
+        Comparator<Integer> comparator3 = Integer::compareTo;
+        System.out.println("comparator 3 : "+comparator3.compare(10,2)); //+1
+
+
+    }
+}
+
+Q9 : Piller interface of java-8 / core of java 8 ?
+--> four piller interface in java-8
+	1: Consumer
+	2: Predicate
+	3: Function
+	4: Supplier
+	
+Q10 : what is a consumer Interface?
+1: Consumer interface is a function interface.
+2: Consumer Interface contain one parameter.
+2: Consumer interface have two method one is "
+	1 : accept() method.
+	2 : andThen() method.
+3: consumer does " not return anything ".[ does not have any output]
+4: Consumer Interface procees a data and do some opertaion on it.
+5: if your requirement is just print the " input " that time go for accept() method.and we can perform opertaion on consumer data.
+
+
+
+accept() method :
+----------------
+--> if your requirement is just print the " input " that time go for accept() method.
+--> accept() does not return any thing. [ void return type]
+--> It procees data and do some opertaion on it.
+
+Example :
+
+@Log4j2
+public class MyConsumer {
+
+    public static void main(String[] args) {
+        Consumer<Integer> consumer = (val)-> log.info(val);
+        consumer.accept(9);
+
+//		using method refernce
+        Consumer<String> consumer1 = log::info;
+        consumer1.accept("Tanveer");
+
+        Consumer<String> consumer3 = name -> log.info(name.toUpperCase());
+        consumer3.accept("Tanveer");
+
+        Consumer<Integer> consumer2 = (a)-> log.info(a*10);
+        consumer2.accept(10);
+
+    }
+}
+
+
+andThen() method :
+-----------------
+--> andThen() accept the "consumer "
+--> andThen() methode is used for mutiple consumer chcek
+	    consumer1.andThen(consumer3).accept("Asif");
+
+example :
+
+@Log4j2
+public class MyConsumer {
+
+    public static void main(String[] args) {
+        
+        Consumer<String> consumer1 = log.info(name.toLowerCase());
+     
+        Consumer<String> consumer2 = name -> log.info(name.toUpperCase());
+        
+        consumer1.andThen(consumer3).accept("Asif");
+    }
+}
+
+Q11 : what is mean by BiConsumer?
+1: BiConsumer interface is a function interface.
+2: BiConsumer contain two parameters.
+3: BiConsumer interface have two method one is " accept() method " and second is " andThen() method.
+4: BiConsumer does " not return anything ".
+5: BiConsumer Interface procees a data and do some opertaion on it.
+6: if your requirement is just print the " input " that time go for accept() method.and we can perform opertaion on consumer data.
+
+Note : forEach() --> accept consumer
+
+Q12 : what is Predicate interface?
+1: Predicate Interface is a fuctional Interface.
+2: Predicate Interface it is always return " boolean " value. [ Ture of false]
+3: Predicate have following method
+	1: test() 	: It return boolean value
+	2: and()	: It return true if both condition is satiesfied else fale
+	3: or()		: It return true if one condition is satiesfied else false
+	4: negate()	: It return the reverse the output. 
+4: Predicate Interface contain only one parameter.
+
+Q13 : what is BiPredicate interface?
+1: BiPredicate Interface is a fuctional Interface.
+2: BiPredicate Interface it is always return " boolean " value. [ Ture of false]
+3: BiPredicate have following method
+	1: test() 	: It return boolean value
+	2: and()	: It return true if both condition is satiesfied else fale
+	3: or()		: It return true if one condition is satiesfied else false
+	4: negate()	: It return the reverse the output. 
+4: BiPredicate Interface contain only two parameter.
+
+Note : filter() --> accept predicate
+
+Q14 : what is function interface?
+1: fuction Interface is a functional interface.
+2: fuction Interface conatin two parameters. [ one parameter is a input parameter and second parameter is out parameter ]
+3: function Interface have following abstract methodes
+	1 : apply()
+	2 : compose()
+	3 : andThen()
+	
+Q14 : what is Bifunction interface?
+1: fuction Interface is a functional interface.
+2: fuction Interface conatin three parameters. [ one and two parameter is a input parameter and third parameter is out parameter ]
+3: function Interface have following abstract methodes
+	1 : apply()
+	2 : compose()
+	3 : andThen()
+	
+Q16 : what is mean by UnaryOperator?
+--> UnaryOperator is a Functional Interface
+--> UnaryOperator is used when we are passing and getting a same type of data.
+--> UnaryOperator contain one parameter but both parameter.
+--> UnaryOperator return same types of data which you are passed.
+--> UnaryOperator extends the "Function Interface".
+
+Q17 : what is mean by BinaryOperator?
+--> BinaryOperator is a Functional Interface.
+--> BinaryOperator extends "BiFunction interface".
+--> BinaryOperator have 2 method
+	1: maxBy()
+	2: minBy()
+--> " Comparator interface" is passed as i/p to the BinaryOperator method.
+
+Q18 : what is mean by Supplier Interface?
+--> Supplier interface is a functional interface.
+--> Supplier interface is used to supply a data to the client.
+--> Supplier interface does not take any input of data only return the data.
+--> Supplier interface have one abstract method
+	1 : get()
+	
+note : If method does not take any parameter then we can used supplier Interface jto get the data
+
+
+Q19 : functional interface and its method and when we used?
+Notes:
+1 : if u want to process the data then go for " Consumer Interface".
+2 : if u want to test or validate the some data then go for  " predicate Interface ".
+3 : if u want to return some data then go for " fuction Interface".
+4 : if u want to return same type of data which you are passed then go for " UnaryOperator ".	
+5 : if u want to return maximum or minmum number usning comparator interface then go for " BinaryOperator".
+6 : if u want to return the data then you go for supplier interface.
+
+1 : Consumer interface have two method one is "
+	1 : accept() method.
+	2 : andThen() method.
+	
+2 : Predicate interface have following method
+	1: test() 	: It return boolean value
+	2: and()	: It return true if both condition is satiesfied else fale
+	3: or()		: It return true if one condition is satiesfied else false
+	4: negate()	: It return the reverse the output. 
+	
+3 : function Interface have following abstract methodes
+	1 : apply()
+	2 : compose()
+	3 : andThen()
+	
+4 : UnaryOperator have following abstract methodes
+	1 : apply()
+	2 : compose()
+	3 : andThen()
+	
+5 : BinaryOperator have following abstract methodes
+	1 : BinaryOperator.maxBy(comparator)
+	2 : BinaryOperator.minBy(comparator)
+	
+6 : Supplier interface have one abstract method
+	1 : get()
+	
+Q20 : what is differnce between normal Interafce and functional interface?
+--> Normal interface can not be annotated with @FunctionalInterface
+--> Function Interface  annotated with @FunctionalInterface
+--> Normal interface can have any number of abstract method.
+--> Function interface have only one abstract method.
+	
+Q21 : Function interface is also called as what?
+--> Function interface is also called as "SAM".
+--> SAM Interface stands for Single Abstract Method Interface.
+
+Q22 : Function interface present in which package?
+--> java.util.function.Package

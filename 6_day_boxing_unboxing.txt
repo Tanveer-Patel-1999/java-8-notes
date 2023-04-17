@@ -1,0 +1,33 @@
+Boxing and Unboxing
+===================
+
+Q : what is Boxing?
+--> we are converting "wrapper class type" to "primitive to type" is called as boxing.
+--> we are converting " wrapper class Integer" to " primitive to type " int ".
+--> boxing means type conversion.
+
+Q : what is unBoxing?
+-->we are converting " primitive to type " to "wrapper class type ". is called unboxing.
+
+package org.example.boxingAndUnBoxing;
+
+public class BoxingAndUnBoxing {
+
+//    boxed() : it is used to convert the data
+    static List<Integer> boxingMethod(){
+        return IntStream.rangeClosed(1,10) // primitive data
+                .boxed() // converting to wrapper class
+                .collect(Collectors.toList()); //collect as list
+    }
+
+    static  int calculateSum(List<Integer> list){
+        return list.stream() //
+                .mapToInt(Integer::intValue) // map do the converting part
+                .sum();
+    }
+
+    public static void main(String[] args) {
+        boxingMethod().forEach(System.out::println);
+        System.out.println("sum is :"+calculateSum(boxingMethod()));
+    }
+}

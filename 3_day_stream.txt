@@ -1,0 +1,214 @@
+Stream
+======
+1: stream is a sequence of data element.
+2: stream is not support indexed based access.
+3: stream is specailaly designed for lambda expression.
+
+stream Api:
+==========
+4: streamis used to prcoess the data.
+5: stream is basically collection of object.
+6: stream will not directly process the data into the collection.
+7: stream will first take the data from collection and process the data.
+8: After prcoessing the data will be stored into the another collection. 
+9: stream will not change the original data.
+
+Q1: how to create a stream?
+--> Stream<Integer> s = Stream.of(1,2,3,4,5,6);
+
+Q2: what is used of forEach();
+--> To iterate the data we can used forEach method.
+--> forEach() method allways take "consumer interface" at a input.
+ 
+
+Q3: Stream present in which package?
+--> java.util.stream.Stream;
+
+Q4: what is difference between collection and stream.
+-->
+		Collections 									stream
+	1: Read and write [ update the collection] 			1: Read only
+	[we can add , update , remove an element ]			[we can read the data]
+	2: Collections is all about data					2: stream ia all about computation on data.
+	3: Iterate over collection							3: internal iteration [forEach() ]
+	4: mutiple iteration is possible					4: only onces iteration
+	
+Q4: what is used of stream.filter()?
+--> filter() method is used to perform " condition " on the data / validate the data / check the data.
+--> filter() method reduce the data.
+--> filter method() take input as " predicate interface".                        
+--> we can apply multiple filter at a time also.
+
+Q5: what is used of stream.map()?
+--> map() is transfer one type of data into another type.
+--> map() method is used to perform an " operation " on each and every element.
+--> map() method does not reduce the data.
+--> map() method take input as "function interface".
+--> map() one-to-one
+
+note : we can used method reference in map() method :  className :: methodName [ get..()]
+
+Q6: what is used of stream.flatMap()?
+--> FlatMap() is transfer one type of data into another type.
+--> FlatMap() perform operation on each element present in the stream.
+--> FlatMap() is used for complex data or complex collection .
+--> FlatMap() is one-to-many
+
+Q6: what is used of distinct() method?
+--> After filtering the data we can remove duplicate or we just want unique value that time go for distinct() method. 
+
+Q8: what is used of count() method?
+--> by using count() we can find total number of element present in the list.
+--> it return Long value.
+
+Q9: what is used of collect() method?
+--> by using collect method we can store the data into another collection.
+
+Q10: what is used of forEach() method?
+--> it is used to itterate the stream object.
+--> forEach() method takes a single argument, which is a lambda expression or a method reference.
+
+Q7: what is used of sorted() method?
+--> After filtering if you want to filter then go for sorted() method.
+
+Q12: how to reverse a list?
+--> by Using  sorted(Comparator.reverseOrder()) method we can reverse a list.
+
+
+Q7 : what is mean by peek() method?
+--> peek() method is used to debuging purpose.
+--> peek() method is used to print the data.
+--> peek() method take input as a " consumer interface".
+--> it is allways present after the stream().
+	example :
+		//       stream().peek(System.out::println) //peek is a debug element [ it will print all information]
+                 stream().peek(person -> System.out.println(person.getName())) [ it will print only name]
+
+Q13: what is mean by reduce() method?
+1: reduce() method is used to reduce a stream of elements to a "single value".
+2: reduce() method is used to combine all data into a " single value".
+3: reduce() method take two parameter
+        1: identity :-identity  is used as the starting value for the reduction operation.
+        2: accumulator : BinaryOperator  :- BinaryOperator defines the reduction operation to be performed on the elements of the stream.
+                                         :- The BinaryOperator takes two elements of the stream and combines them to produce a new result.
+4 : reduce() method return Optional class.
+ syntax:
+        Optional<T> result = stream.reduce(identity, binaryOperator);
+
+
+note :
+    1 : we perform an addition : identity = 1
+    2 : we perform a multiplication : identity = 0
+    3 : we perform a concatenation : identity = ""
+
+ note :
+    1 :when we are comparing data from a list [ highest , lowest etc] that time does not required the "identity" .
+    2 : when we used a reduce() method it returns optional class and used get() method for plane data.
+			 
+Q14 : what is used of limit()?
+-->  limit() method are used to return the limited number of elements
+
+Q15 : what is mean by skip() method?
+--> it is used to skip the element from start position.
+
+Q16 : what is used of sum() method?
+--> it is used to calculate the sum of all elements.
+--> before using sum() method u must used mapToInt() method.
+
+Q17 : what is mean by max() and min() method?
+1 : max() :- it is used to find the maximum value present in the stream
+2 : min() :- it is used to find the minimum value present in the stream.  
+
+Q18 : what is mean by toArray()?
+-->toArray() is used to stream of object to the array.
+--> the class type is Object.
+
+List<Integer> intList = Arrays.asList(1, 2, 3);
+Integer[] intArray = intList.stream().toArray(Integer[]::new);
+
+Q19 : what is mean by intermediate operation
+--> intermediate operation is called as " non-terminal operation".
+--> intermediate operation are those operation that return " stream " as a result.
+--> an intermediate operation return another stream as a result we they can be  "chained together to form a pipeline of stream operation".
+--> any number of intermediate operation is present any where
+--> intermediate operation  "does not give end result" they just transfer " one stream to another stream ".
+ 
+exmaple : 
+	1 : filter()
+	2 : map()
+	3 : flatMap()
+	4 : distinct()
+	5 : limit()
+	6 : sorted()
+	7 : skip()
+	8 : peek()
+	
+	
+Q20 : what is mean by terminal operation?
+--> terminal opertion are those operation that return " non-strean value " [ like primitive , object , collection or may not return any thing]
+--> Terminal operation can not be " chained together ".
+--> Terminal operation can be present at the last.
+--> Ony one terminal operation is present in the pipeline.
+--> Terminal operation give end result.
+
+Example :
+	1 : collect()
+	2 : forEach()
+	3 : min()
+	4 : max()
+	5 : count()
+	6 : reduce()
+	7 : toArray
+	8 : anyMatch()
+	9 : AllMatch()
+	10: noneMatch()
+	11: findFirst()
+	12: findAny()
+	13: sum()
+
+
+Q21 : pipeline of an operation contain how many number of may intermediate and terminal operation?
+--> pipeline of an operation may contain  "any number of intermediate operation " but there has " only one terminal operation" present at the end of pipeline.
+
+Q22 : when intermediate operation is executed?
+--> intermediate operation are  "lazy loaded.
+--> when we call intermediate operation they are  " actually not executed " are just store in the memory and they executed when the  " terminal operation " is called.
+
+Q23 : how to join or concat two list?
+--> using Stream.concat() 
+--> first we need to convert the list into stream
+ exam : Stream.concat(l1.stream(), l2.stream()).collect(Collectors.toList());
+ 
+ 
+Q24 : define an allMatch()?
+1 : allMatch()
+        1: allMatch() method match all the element present in the stream.
+        2: it returns boolean value : T , F
+        3: If all element satisfied the condition present in the stream then it will return true.
+        4: allMatch() take input as " predicate interface ".
+		
+Q25 : define an anyMatch?
+2 : anyMatch()
+               1: anyMatch() method match any one of the element present in the stream.
+               2: anyMatch() returns boolean value : T , F
+               3: If any one element satisfied the condition present in the stream then it will return true.
+               4: anyMatch() take input as " predicate interface ".
+			   
+Q26 : define an nonMatch() ?
+3 : nonMatch()
+               1: nonMatch() method match non of the element present in the stream.
+               2: nonMatch() returns boolean value : T , F
+               3: If non of the element not satisfied the condition present in the stream then it will return true.
+               4: nonMatch() take input as " predicate interface ".
+			   
+Q27: define the findFirst() method?
+1:findFirst()
+            1: findFirst() is used to first value present in the stream.
+            2: findFirst() method return Optional class.
+            3: findFirst() method  used get() method.
+			
+Q28 : define the findAny() method?
+2:findAny()
+            1: findAny() is used to first value present in the stream.
+            2: findAny() method return Optional class.
+            3: findAny() method  used get() method.

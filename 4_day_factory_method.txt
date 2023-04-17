@@ -1,0 +1,30 @@
+Factory Method 
+===========
+
+Q1 : what are Factory method list it?
+--> 1 : Stream.iterate  : Return infinite sequential order stream
+	2 : Stream.generate : Return infinite UnOrederd stream.
+	3 : Stream.of 		: Return sequential order stream with the specified values.
+	
+Q2 : which method return infinite sequential stream ?
+--> they are two method
+	1: Stream.iterate
+	2: Stream.generate
+	
+Q3 : what is a Stream.iterate() method?
+--> Stream.iterate() method is a factory method.
+--> Stream.iterate() method take two input  parameters.
+--> first input is " initial value / identity / seed value ".
+--> second input is " unaryOpartor".
+
+Q4 : what is a Stream.generate() method?
+--> Stream.generate() method is a factory method.
+--> Stream.generate() method take input only one input parameter..
+--> The input is a supplier Interface. [ it will not take input data ]
+
+
+Q5 : what is a Stream.of() method?
+--> Stream.of() method is a factory method.
+--> Stream.of() method return a sequential stream conatining a single element.
+
+

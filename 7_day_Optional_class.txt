@@ -1,0 +1,40 @@
+Optional Class
+==============
+Q1 : what is mean by Optional class?
+--> Optional is a "container  is a public final class and used to deal "with NullPointerException" in Java application." used to contain " not-null value or object ".
+--> optional is used to represent " null value " with " absent value".
+--> nullpointer exception or  null pointer check to avoid that issue we can used optional class.
+--> To avoid abnormal termination, we use the  "Optional class".
+--> using optional class " null checks " are not required and no more " null pointer exception " at run time.
+--> we can avoid " boiler plate code ".
+--> Optional class is a final class.
+ 
+ 
+Q2 : What are the methods present in the " Optional class"?
+--> they are three methods
+
+1 : empty() 			: empty() method return an "empty optional instance".
+
+2 : of(T value) 		: of() method return an " not null  value".
+
+3 : ofNullable(T value) : ofNullable() method return " optional empty " based on described or specified value.
+
+4 : isPresent () 		: 
+
+note :
+====
+1 : when we used optional class then must be used " get() " method to retreive a data.
+2 : when we used get() method first we used isPresent() method to check the data is present or not.
+2 : when we used optional class first you make sure data is present or not.
+
+  static Optional<String> personNameUsingOptional(Optional<Person> person)
+    {
+//        if (person !=null)
+        if (person.isPresent())
+        { 
+            return person.map(Person::getName); // used map() method when we used optional
+        }
+        else {
+            return Optional.empty();
+        }
+    }
