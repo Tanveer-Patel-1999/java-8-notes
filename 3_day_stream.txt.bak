@@ -160,7 +160,7 @@ Example :
 	4 : max()
 	5 : count()
 	6 : reduce()
-	7 : sum()
+	7: sum()
 	8 : anyMatch()
 	9 : AllMatch()
 	10: noneMatch()
@@ -214,12 +214,12 @@ Q26 : define an nonMatch() ?
 			   
 Q27: define the findFirst() method?
 1:findFirst()
-            1: findFirst() is used to find first value present in the stream.
+            1: findFirst() is used to first value present in the stream.
             2: findFirst() method return Optional class.
             3: findFirst() method  used get() method.
 			
 Q28 : define the findAny() method?
 2:findAny()
-            1: findAny() is used to find first value present in the stream.
+            1: findAny() is used to first value present in the stream.
             2: findAny() method return Optional class.
             3: findAny() method  used get() method.

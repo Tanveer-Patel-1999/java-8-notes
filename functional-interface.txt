@@ -1,0 +1,56 @@
+java-8
+
+1-> anonomus method()--- the method doest not have any name of access modifer is call as anonymous method.
+
+exm---(){
+        System.out.println("it ia an anonymous method");
+    }
+
+
+
+functional interface
+-------------------
+1:the interface that conatin only one abstract method and multiple number of static and default method
+2:@Functional Annotation is used
+
+
+exm:->
+1:Runnable----run()
+2:Callable----call()
+3:Comparable---compareTo()
+4:Comparator---compare()
+
+
+exmp
+package com.example.Functional;
+
+public interface MyInterface {
+
+    //abstract method
+    public void execute();
+
+    //default method1
+    public default void show()
+    {
+        System.out.println("this is a show method");
+    }
+
+    //default method2
+    public default void show1()
+    {
+        System.out.println("this is a show1 method");
+    }
+
+
+    //static method1
+    public static void display()
+    {
+        System.out.println("this is a display method");
+    }
+
+    //static method2
+    public static void display1()
+    {
+        System.out.println("this is a display method");
+    }
+}

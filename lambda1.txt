@@ -1,0 +1,185 @@
+lambda
+-----
+1:lambda hava a anonymous function they did not hava a name
+2:they hava a parameter list
+3:body--this is the main part of the function
+4:they dont have return type 
+
+
+syntx
+() -> { }
+
+()....lambda input parameter
+->....Arrow
+{}....body
+
+
+example
+
+package com.example.lambda;
+
+//traditional way to write code
+-------------------------------------------
+//method overriding(polymorphisum)
+
+import java.awt.*;
+
+//1:create a interface
+interface Shape
+{
+    void draw();
+}
+
+
+//2:create a Rectangle class
+class Rectangle implements Shape
+{
+
+    @Override
+    public void draw() {
+        System.out.println("this is a draw method of rectangle");
+    }
+}
+
+//3:create a Circle class
+class Square implements Shape
+{
+
+    @Override
+    public void draw() {
+        System.out.println("this is a draw method of Square");
+    }
+}
+
+//4:create a Circle class
+class Circle implements Shape
+{
+
+    @Override
+    public void draw() {
+        System.out.println("this is a draw method of Circle");
+    }
+}
+
+
+public class LambdaExample {
+    public static void main(String[] args) {
+
+      Rectangle rectangle1 = new Rectangle();
+      rectangle1.draw();
+
+      Square square = new Square();
+      square.draw();
+
+      Circle circle = new Circle();
+      circle.draw();
+
+
+
+}
+}
+------------------------------------------------------------------------------------
+package com.example.lambda;
+
+//this is a best way to write code
+interface Shape1 {
+    void draw();
+}
+
+public class LambdaExample1 {
+
+    //passing lambda expression using method parameter
+    private static void print(Shape shape) {
+        shape.draw();
+    }
+
+    public static void main(String[] args) {
+
+
+        Shape rectangle = () -> {
+            System.out.println("this is a draw method of rectangle");
+        };
+        rectangle.draw();
+
+        Shape circle = () -> {
+            System.out.println("this is a draw method of circle");
+        };
+        circle.draw();
+
+        Shape square = () -> {
+            System.out.println("this is a draw method of square");
+        };
+        square.draw();
+
+
+        System.out.println("*************************************");
+        System.out.println("alternate way");
+        Shape rectangle1 = () -> System.out.println("this is a draw method of rectangle");
+        rectangle1.draw();
+
+        Shape circle1 = () -> System.out.println("this is a draw method of circle");
+        circle1.draw();
+
+        Shape square1 = () -> System.out.println("this is a draw method of square");
+        square1.draw();
+
+        //we can pass to the method
+        System.out.println("******************************************");
+        Shape rectangle2 = () -> System.out.println("this is a draw method of rectangle");
+        // rectangle1.draw();
+        print(rectangle2);
+
+        Shape circle2 = () -> System.out.println("this is a draw method of circle");
+        //circle1.draw();
+        print(circle2);
+
+
+        Shape square2 = () -> System.out.println("this is a draw method of square");
+        // square1.draw();
+        print(square2);
+
+
+	  System.out.println("*************************************");
+        System.out.println("alternate way");
+
+        //we can pass lambda expression as a method parameter
+        print(() -> System.out.println("this is a draw method of rectangle"));
+        print(() -> System.out.println("this is a draw method of circle"));
+        print(() -> System.out.println("this is a draw method of square"));
+
+
+    }
+
+}
+
+-------------------------------------------------------------------------------------------------------
+package com.example.lambda;
+
+//using traditional way
+interface Addable {
+    int addition(int a, int b);
+}
+/*
+class  Add implements Addable
+{
+
+    @Override
+    public int addition(int a, int b) {
+        return (a+b);
+    }
+}
+*/
+
+public class LambdaParameter {
+    public static void main(String[] args) {
+//        Add add = new Add();
+//        System.out.println(add.addition(3,5));
+
+        Addable addable = (a, b) -> (a + b);
+        int result = addable.addition(10, 7);
+        System.out.println(result);
+
+    }
+}
+
+

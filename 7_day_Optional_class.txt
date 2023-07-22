@@ -1,11 +1,18 @@
 Optional Class
 ==============
 Q1 : what is mean by Optional class?
---> Optional is a "container  is a public final class and used to deal "with NullPointerException" in Java application." used to contain " not-null value or object ".
---> optional is used to represent " null value " with " absent value".
---> nullpointer exception or  null pointer check to avoid that issue we can used optional class.
---> To avoid abnormal termination, we use the  "Optional class".
+--> Optional is a "container  is a public final class and used to deal "with NullPointerException" in Java application.
+" used to contain " not-null value or object ".
+--> Optional class is a final class.
 --> using optional class " null checks " are not required and no more " null pointer exception " at run time.
+--> To avoid abnormal termination, we use the  "Optional class".
+
+
+
+
+
+
+--> optional is used to represent " null value " with " absent value".
 --> we can avoid " boiler plate code ".
 --> Optional class is a final class.
  
@@ -38,3 +45,12 @@ note :
             return Optional.empty();
         }
     }
+	
+--> obj.isPresent() : it chcek the condition  : if(name.isPresent){ sout(name.get());} : it return boolean value
+--> obj.ifPresent() [ aye value leta hau deta kuch nhi] : it will take the value but not give the value : it take input as consumer : name.ifPresent(System.out::println);
+--> Optional.of(name) : it take only not  null value if null value is present it will through null pointer exception
+--> optional.ofNullable(name) : it will take both value and null value .
+--> Optional.empty() : it is used to empty optinal instance
+--> obj.orElse() : it will give default value is not present
+--> obj.orElseGet() : it take supplier Interface as a input it will not take anything it just gives values :
+--> obj.orElseThrow() : if value is not present then it will through exception.

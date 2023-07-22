@@ -1,0 +1,66 @@
+1:Interface Function<T,R>
+
+
+-->when your requirement is take a input and provide a output then go for functional interface.
+
+
+Type Parameters:
+T - the type of the input to the function
+R - the type of the result of the function
+All Known Subinterfaces:
+UnaryOperator<T>
+Functional Interface:
+This is a functional interface and can therefore be used as the assignment target for a lambda expression or method reference.
+
+Function interface have two parameter in this below it take String as input and return the result as an integer value
+
+
+ apply method is present in the Function
+
+----------------------------------------------------------------
+traditional way
+---------------------------------------------
+
+
+package com.example.function;
+
+import java.util.function.Function;
+
+//Function interface have two parameter in this below it take String as input and return the result as an integer value
+class FunctionImp implements Function<String,Integer>
+{
+
+    //apply method is present in the Function
+    @Override
+    public Integer apply(String s) {
+        //return the length of String
+        return s.length();
+    }
+}
+public class FunctionDemo {
+    public static void main(String[] args) {
+        //Function<String,Integer> it is an interface
+        //function ===is refernce variable
+        //FunctionImp== class name
+        Function<String,Integer> function = new FunctionImp();
+        System.out.println(function.apply("Tanveer"));
+
+    }
+}
+
+---------------------------------------------------------------------------------------
+//using the lambda expression
+------------------------------------------------------------------------
+
+package com.example.function;
+
+import java.util.function.Function;
+
+//using the lambda expression
+public class FunctionLambda {
+    public static void main(String[] args) {
+        Function<String,Integer> function = (String s)-> s.length();
+        System.out.println(function.apply("Uttam"));
+
+    }
+}

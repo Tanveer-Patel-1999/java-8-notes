@@ -1,0 +1,37 @@
+package com.example.lambda;
+
+//using traditional way
+interface Addable {
+    int addition(int a, int b);
+}
+/*
+class  Add implements Addable
+{
+
+    @Override
+    public int addition(int a, int b) {
+        return (a+b);
+    }
+}
+*/
+
+public class LambdaParameter {
+    public static void main(String[] args) {
+        //traditional way
+//        Add add = new Add();
+//        System.out.println(add.addition(3,5));
+
+//        Addable addable = (a, b) -> (a + b);
+//        int result = addable.addition(10, 7);
+//        System.out.println(result);
+
+        //write multiple stmt in lambda body
+        Addable ad =(a,b) ->{
+           int c = (a+b);
+           return c;
+        };
+        System.out.println(ad.addition(2,5));
+
+
+    }
+}

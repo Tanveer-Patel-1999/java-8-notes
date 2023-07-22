@@ -1,0 +1,43 @@
+package com.example.runnablellambda;
+--------------------------
+//Traditional way
+--------------------
+class ThreadDemo implements Runnable
+{
+
+    @Override
+    public void run() {
+        System.out.println("run() call.....");
+    }
+}
+public class RunnableLambdaExample {
+    public static void main(String[] args) {
+
+        //create a obj of class
+        ThreadDemo threadDemo = new ThreadDemo();
+
+        //create a object of thread n pass the object of class
+        Thread thread =new Thread(threadDemo);
+
+        //start the thread
+        thread.start();
+    }
+}
+---------------------------------------------------------------
+
+package com.example.runnablellambda;
+
+------------------------------
+//using lambda expression
+-------------------------------
+public class RunnableExample {
+    public static void main(String[] args) {
+        //Runnable is an interface and runnable is reference variable
+        Runnable runnable =()->{
+            System.out.println("run() method call using lambda....");
+        };//Thread is class a
+        Thread thread = new Thread(runnable);
+        thread.start();
+
+}
+}

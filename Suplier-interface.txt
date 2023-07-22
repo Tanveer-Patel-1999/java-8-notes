@@ -1,0 +1,56 @@
+3:terface Supplier<T>
+---------------------
+
+Type Parameters:
+T - the type of results supplied by this supplier
+Functional Interface:
+This is a functional interface and can therefore be used as the assignment target for a lambda expression 
+or method reference.
+
+--It is supplier some data to the client
+--It have get()
+
+----------------------------------------------------------------------------------------------
+package com.example.supplier;
+
+import java.time.LocalDateTime;
+import java.util.function.Supplier;
+
+-----------------------
+//using traditional way
+------------------------
+
+//we can get the current date time by using -LocalDateTime
+class SupplierImpl implements Supplier<LocalDateTime>{
+
+
+    @Override
+    public LocalDateTime get() {
+        return LocalDateTime.now();
+    }
+}
+
+public class SupplierDemo {
+    public static void main(String[] args) {
+        Supplier<LocalDateTime> supplier = new SupplierImpl();
+        System.out.println(supplier.get());
+    }
+}
+----------------------------------------------------------------------------
+package com.example.supplier;
+
+import java.time.LocalDateTime;
+import java.util.function.Supplier;
+
+--------------------------------
+//using the lambda expression
+-----------------------------
+
+public class SupplierLambda {
+    public static void main(String[] args) {
+
+    Supplier<LocalDateTime> supplier = () -> LocalDateTime.now();
+        System.out.println(supplier.get());
+}
+}
+

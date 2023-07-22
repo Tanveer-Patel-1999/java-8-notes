@@ -1,0 +1,61 @@
+2:Interface Consumer<T>
+
+
+
+Type Parameters:
+T - the type of the input to the operation
+All Known Subinterfaces:
+Stream.Builder<T>
+Functional Interface:
+
+This is a functional interface and can therefore be used as the assignment target 
+for a lambda expression or method reference.
+
+//consumer interface have only one type of input
+
+   //it have accept() method
+
+------------------------------------------------------------------
+package com.example.consumer;
+
+import java.util.function.Consumer;
+
+----------------------------
+//traditional way
+---------------------------
+
+//consumer interface have only one type of input
+class ConsumerImpl implements Consumer<String>
+{
+
+    //it have accept() method
+    @Override
+    public void accept(String s) {
+        System.out.println(s);
+    }
+}
+public class ConsumerDemo {
+    public static void main(String[] args) {
+        Consumer<String> consumer = new ConsumerImpl();
+        consumer.accept("Hello Tanveer");
+    }
+}
+--------------------------------------------------------------------
+
+package com.example.consumer;
+
+import java.util.function.Consumer;
+
+-----------------------------
+//using the lambda expression
+-----------------------------
+
+public class ConsumerLambda {
+    public static void main(String[] args) {
+        Consumer<String> consumer = (str)-> {
+            System.out.println(str);
+        };
+        consumer.accept("hello tanveer");
+    }
+}
+

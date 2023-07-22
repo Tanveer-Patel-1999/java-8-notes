@@ -18,7 +18,7 @@ Q1 : why we need java-8?
 --> Improving application performnace.
 --> lambdas expression the stream api
 --> new Optional type give developers significant flexibility when dealing with " null value ".
---> time api chnages
+--> time api changes
 
 Q2  : significant of java-8?
 --> it reduce the code
@@ -179,18 +179,20 @@ public class ComparatorLambda {
 
 Q9 : Piller interface of java-8 / core of java 8 ?
 --> four piller interface in java-8
-	1: Consumer
-	2: Predicate
-	3: Function
-	4: Supplier
+	1: Consumer ---> no result
+	2: Predicate ---> boolean result
+	3: Function ---> input and output
+	4: Supplier --> no input only supply
 	
 Q10 : what is a consumer Interface?
 1: Consumer interface is a function interface.
-2: Consumer Interface contain one parameter.
-2: Consumer interface have two method one is "
+2: consumer interface is to process the data.
+3: Consumer Interface contain one parameter.
+4: consumer does " not return anything ".[ does not have any output]
+4: Consumer interface have two method one is "
 	1 : accept() method.
 	2 : andThen() method.
-3: consumer does " not return anything ".[ does not have any output]
+
 4: Consumer Interface procees a data and do some opertaion on it.
 5: if your requirement is just print the " input " that time go for accept() method.and we can perform opertaion on consumer data.
 
@@ -228,7 +230,7 @@ public class MyConsumer {
 andThen() method :
 -----------------
 --> andThen() accept the "consumer "
---> andThen() methode is used for mutiple consumer chcek
+--> andThen() methode is used for mutiple consumer check
 	    consumer1.andThen(consumer3).accept("Asif");
 
 example :
@@ -258,16 +260,19 @@ Note : forEach() --> accept consumer
 
 Q12 : what is Predicate interface?
 1: Predicate Interface is a fuctional Interface.
-2: Predicate Interface it is always return " boolean " value. [ Ture of false]
-3: Predicate have following method
+2: Predicate is  test or validate the some data.
+3: Predicate Interface contain only one parameter.
+4: Predicate Interface it is always return " boolean " value. [ Ture of false]
+5: Predicate have following method
 	1: test() 	: It return boolean value
 	2: and()	: It return true if both condition is satiesfied else fale
 	3: or()		: It return true if one condition is satiesfied else false
 	4: negate()	: It return the reverse the output. 
-4: Predicate Interface contain only one parameter.
 
 Q13 : what is BiPredicate interface?
 1: BiPredicate Interface is a fuctional Interface.
+2: BiPredicate is  test or validate the some data.
+3: BiPredicate Interface contain only two parameter.
 2: BiPredicate Interface it is always return " boolean " value. [ Ture of false]
 3: BiPredicate have following method
 	1: test() 	: It return boolean value
@@ -282,17 +287,17 @@ Q14 : what is function interface?
 1: fuction Interface is a functional interface.
 2: fuction Interface conatin two parameters. [ one parameter is a input parameter and second parameter is out parameter ]
 3: function Interface have following abstract methodes
-	1 : apply()
-	2 : compose()
-	3 : andThen()
+	1 : apply()   : pass the argument
+	2 : compose() : new function will generate : it is a reverse of andThen()  : it work left to right
+	3 : andThen() : new function will generate : it take result of first function as a input of second function : it work right to left
+	4 : identity() : what u provide as an input it give same output : it is a static method call with Interafce name. it not do any things
 	
 Q14 : what is Bifunction interface?
 1: fuction Interface is a functional interface.
 2: fuction Interface conatin three parameters. [ one and two parameter is a input parameter and third parameter is out parameter ]
 3: function Interface have following abstract methodes
-	1 : apply()
-	2 : compose()
-	3 : andThen()
+	1 : apply()   : pass the argument
+	2 : andThen() : new function will generate : it take result of first function as a input of second function : it work right to left
 	
 Q16 : what is mean by UnaryOperator?
 --> UnaryOperator is a Functional Interface
@@ -316,7 +321,7 @@ Q18 : what is mean by Supplier Interface?
 --> Supplier interface have one abstract method
 	1 : get()
 	
-note : If method does not take any parameter then we can used supplier Interface jto get the data
+note : If method does not take any parameter then we can used supplier Interface  get the data
 
 
 Q19 : functional interface and its method and when we used?

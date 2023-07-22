@@ -1,0 +1,56 @@
+Java-8 interview questions
+==========================
+1 : why we need java8?
+2 : significant of java8?
+3 : what are new features introduce in java8? 7
+4 : what is the functionalInterface?
+5 : Function interface is also called as what? --> SAM
+6 : Function interface present in which package? --> java.util.function Package
+7 : what is differnce between normal Interafce and functional interface?
+8 : what is mean by anonymous function / method?
+9 : what is mean by lambda and synatx?
+10: differnce b/w lambda and method?
+11: when we used a curley  " { } " bracket in lambda and not ?
+12: used of Runnable interface with lambda expression? --> run()
+13: used of Comparator interface with lambda expression? --> compare() --->compareTo()
+14: what is mean by methodRefernce and syntax?
+15: types of methodRefernce? 3
+16: " :: " this means what in the methodreference ? ::
+17: what is mean by lambda local varaiable?
+
+18: Piller interface  or functionalInterface of java-8 / core of java 8 ?
+	1: Consumer
+	2: Predicate
+	3: Function
+	4: Supplier
+19: what is a consumer Interface?
+20: How many method present in the consumerInterface? : process the data  : contain only one parameter : (a) -> sout(a);
+	1 : accept()
+	2 : andThen()
+21: what is mean by BiConsumer Interface?
+22: How many method present in the consumerInterface? : process the data  : contain only two parameter : (a,b) -> sout(a+b);
+	1 : accept()
+	2 : andThen()
+23: what is Predicate interface?  :  test or validate the some data : contain only one parameter : (a) -> a > 5 ;
+24: How many method present in the Predicate have following method
+	1: test() 	: It return boolean value based on condition
+	2: and()	: It return true if both condition is satiesfied else fale
+	3: or()		: It return true if one condition is satiesfied else false
+	4: negate()	: It return the reverse the output. 
+25: what is BiPredicate interface?  :  test or validate the some data : contain only two parameter : (a,b) -> a+b > 5
+26: How many method present in the BiPredicate have following method
+	1: test() 	: It return boolean value based on condition
+	2: and()	: It return true if both condition is satiesfied else fale
+	3: or()		: It return true if one condition is satiesfied else false
+	4: negate()	: It return the reverse the output. 
+27: what is function interface ? : return some data  : contain two parameter : [ input and outPut] : (a,b) -> a + 5;
+28: function Interface have following abstract methodes
+	1 : apply()   : pass the argument
+	2 : compose() : new function will generate : it is a reverse of andThen()  : it work left to right
+	3 : andThen() : new function will generate : it take result of first function as a input of second function : it work right to left
+	4 : identity() : what u provide as an input it give same output : it is a static method call with Interafce name. it not do any things
+29: what is Bifunction interface ? : return some data  : contain 3 parameter : [ input, input and outPut] : (a,b) -> 
+30: Bifunction Interface have following abstract methodes
+	1 : apply()   : pass the argument
+	2 : andThen() : new function will generate : it take result of first function as a input of second function : it work right to left 
+31: what is mean by Supplier Interface? : it does not take parameter on int : it is supply  data to the client. () -> new Random().nextInt();

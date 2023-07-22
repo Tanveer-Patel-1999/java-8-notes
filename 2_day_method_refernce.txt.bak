@@ -5,22 +5,31 @@ Q1 : What is a method Refernce?
 --> method reference is compact and easy form of a " lambda expression".
 --> we can replace a lambda expression with " method reference ".
 --> method reference is a shortcut form of lambda expression.
-
-Q2 : how many types of method reference and list it?
---> they are three types of method reference
-	1 : reference to static method
-	2 : reference to an instance method
-	3 : reference to a constructor
+--> method reference is specail types of lambda expression.
 	
 Q3 : syntac of method refernce?
 -->
-	ClassName :: methodName;
+	reference::methodN
+	
+	ClassName :: methodName
+	Object :: methodName
 --> :: it is called as " token".
 
 Q4 : reference to a constructor?
 -->
 	ClassName :: new;
+
+Q2 : how many types of method reference and list it?
+--> they are three types of method reference
+	1 : reference to static method 		:--> 		ClassName::methodName
+	2 : reference to an instance method	:-->        reference::methodName
+	3 : reference to a constructor		:--> 		ClassName::new
 	
+Q5 :The method() does not contain any parameters on it is treated as , All getter() method is treated as static in stream tell me reason()?
+--> getter() method does not contain any parameters on it in java-8 the method does not have parameters on it is treated as static.
+---> getName is not a static method but also called by ClassName
+--->  in java 8 the method does not contain any parameters in it the method is treated as static method. 
+
 Q5 : what is mean by lambda local varaiable?
 --> lambda are allowed to used local varaiable
 --> but not allowed for modification.[effective final]

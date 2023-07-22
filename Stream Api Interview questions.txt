@@ -1,0 +1,93 @@
+Stream Api Interview questions
+==============================
+
+Stream Api
+==========
+1 : what is stream?
+2 : what is streamApi? 
+3 : how to create a stram ? Stream<Integer> intStream = Stream.of(1,2,3,4);
+4 : what is forEach() method ?
+5 : stream present in which package? java.util.stream
+6 : what is differnce between collections and stream?
+
+7 : what is mean by intermediate operation OR non-terminal operation ?
+	1 : filter()
+	2 : map()
+	3 : flatMap()
+	4 : distinct()
+	5 : limit()
+	6 : skip()
+	7 : sorted()
+	8 : peek()
+8 : how many type of intermediate operation are present? 8 
+9 : what is mean by intermediate or terminal operation ?
+	1 : collect()
+	2 : forEach()
+	3 : min()
+	4 : max()
+	5 : count()
+	6 : reduce()
+	7 : sum()
+	8 : anyMatch()
+	9 : AllMatch()
+	10: noneMatch()
+	11: findFirst()
+	12: findAny()
+	13: toArray
+	14: average()
+	
+10: how many type of intermediate operation are present? 8 
+11: differnce between non-terminal and terminal operation? 12
+12: pipeline of an operation contain how many number of may non-terminal and terminal operation?
+13: when intermediate operation is executed
+
+14: what is used of stream.map()?
+15: what is used of stream.filter()?
+16: what is used of stream.flatMap()?
+17: what is used of stram.distinct()?
+18: what is used of stream.limit()?
+19: what is used of stream.skip()?
+20: what is used of stram.sorted()?
+21: what is used of Comparator.reverseOrder()? 
+22: what is used of peek()?
+
+23: what is used of collect() method?
+24: what is used of forEach() method?
+25: what is used of count() method?
+
+--> the belowe method first used mapToInt()
+26: what is used of sum() method?
+27: what is used of average() method?
+28: what is used of max() method?
+29: what is used of min() method?
+
+--> boolean value 
+30 : what is used of anyMatch() method?
+31 : what is used of allMatch() method?
+32 : what is used of nonMatch() method?
+
+--> optionalClass
+33 : what is used of reduce() method?
+34 : what is used of findFirst() method?
+35 : what is used of findAny() method?
+
+--> Optionaeal class
+36 : what is used of optionalClass?
+37 : what are the method present in the optionalClass?
+38 : how to craete an optional using which method?
+39 : how to check the optinal instance value using which method.
+40 : how to create an empty instance of optional.
+41 : how to give default value if value is not present?
+42 : how to through an exception using optional method?
+43 : what is differnce between of() and ofNullable()?
+44 : what is difference between isPresent() and ifPresent()?
+45 : what is difference between orElse() or OrElseGet()?
+46 : real time used of optionalclass?
+47 : which stream() method can used Optional class?
+
+--> boxing and unBoxing?
+48 : what is mean by boxing : convert "wrapper class type" to "primitive to type" is called as boxing
+49 : what is mean by unBoxing : convert "primitive type" to "wrapper class type" is called as unboxing
+
+
+
